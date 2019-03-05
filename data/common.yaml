@@ -11,3 +11,4 @@ apache::config_dir_path:
   - '/etc/httpd'
   - '/etc/httpd/conf'
 apache::service_ensure: 'running'
+apache::log_dir_path: '/var/log/httpd'
