@@ -26,7 +26,7 @@ class apache::config {
     mode   => '0775',
   }
   exec { 'grant_log_files_ownership':
-    command     => "chown -R ${apache::config_owner}:${apache::config_group} ${$apache::log_dir_path}/*",
+    command     => "chown -R ${apache::config_owner}:${apache::config_group} ${$apache::log_dir_path}",
     refreshonly => true,
     subscribe   => File[$apache::log_dir_path],
   }
