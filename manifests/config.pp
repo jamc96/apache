@@ -8,8 +8,8 @@ class apache::config {
   # default values
   File {
     ensure => $apache::config_ensure,
-    owner  => 'apache',
-    group  => 'apache',
+    owner  => $apache::config_owner,
+    group  => $apache::config_group,
   }
   # create directories
   # home
@@ -24,6 +24,11 @@ class apache::config {
   file { $apache::log_dir_path:
     ensure => directory,
     mode   => '0775',
+  }
+  exec { 'grant_log_files_ownership':
+    command     => "chown -R ${apache::config_owner}:${apache::config_group} ${$apache::log_dir_path}/*",
+    refreshonly => true,
+    subscribe   => File[$apache::log_dir_path],
   }
   # create config files
   file { $apache::config_file_path:

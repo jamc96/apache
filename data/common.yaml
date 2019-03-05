@@ -11,6 +11,8 @@ apache::home_dir_path: '/etc/httpd'
 apache::config_dir_path: 
   - '/etc/httpd/conf'
   - '/etc/httpd/conf.d'
+apache::config_owner: 'apache'
+apache::config_group: 'apache'
 apache::log_dir_path: '/var/log/httpd'
 apache::service_ensure: 'running'
 apache::service_name: 'httpd'
