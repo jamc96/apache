@@ -10,16 +10,14 @@ class apache(
   Enum['present', 'absent'] $package_ensure,
   Enum['present', 'absent'] $config_ensure,
   String $config_file_path,
+  String $home_dir_path,
   Array $config_dir_path,
   String $log_dir_path,
   Enum['running','stopped'] $service_ensure,
+  String $service_name,
 ) {
   # class containment
   include ::apache::install
   include ::apache::config
   include ::apache::service
-  # class relationship
-  Class['::apache::install']
-  -> Class['::apache::config']
-  ~> Class['::apache::service']
 }
