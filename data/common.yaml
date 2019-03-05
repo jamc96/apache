@@ -1,0 +1,13 @@
+---
+apache::packages: 
+  - 'httpd'
+  - 'httpd-devel'
+apache::modules: 
+  - 'mod_ssl'
+apache::package_ensure: 'present'
+apache::config_file_path: '/etc/httpd/conf/httpd.conf'
+apache::config_ensure: 'present'
+apache::config_dir_path: 
+  - '/etc/httpd'
+  - '/etc/httpd/conf'
+apache::service_ensure: 'running'
