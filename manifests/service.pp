@@ -6,7 +6,7 @@
 #   include apache::service
 class apache::service {
   # create service
-  service { 'httpd':
+  service { $apache::service_name:
     ensure     => $apache::service_ensure,
     enable     => true,
     hasrestart => true,

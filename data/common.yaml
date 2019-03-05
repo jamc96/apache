@@ -5,10 +5,13 @@ apache::packages:
 apache::modules: 
   - 'mod_ssl'
 apache::package_ensure: 'present'
-apache::config_file_path: '/etc/httpd/conf/httpd.conf'
 apache::config_ensure: 'present'
+apache::config_file_path: '/etc/httpd/conf/httpd.conf'
+apache::home_dir_path: '/etc/httpd'
 apache::config_dir_path: 
-  - '/etc/httpd'
   - '/etc/httpd/conf'
-apache::service_ensure: 'running'
+  - '/etc/httpd/conf.d'
 apache::log_dir_path: '/var/log/httpd'
+apache::service_ensure: 'running'
+apache::service_name: 'httpd'
+
