@@ -23,7 +23,7 @@ class apache::config {
   }
   file { $apache::log_dir_path:
     ensure => directory,
-    mode   => '0775',
+    mode   => $apache::log_dir_mode,
   }
   exec { 'logs permissions':
     command     => "chown -R ${apache::config_owner}:${apache::config_group} ${$apache::log_dir_path}",

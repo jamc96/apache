@@ -15,6 +15,7 @@ class apache(
   String $config_owner,
   String $config_group,
   String $log_dir_path,
+  String $log_dir_mode,
   Enum['running','stopped'] $service_ensure,
   String $service_name,
 ) {
